@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <div class="icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+        </div>
+        <h1>BMI Calculator</h1>
+        <p class="subtitle">Calculate your Body Mass Index</p>
+      </div>
+
+      <div class="unit-toggle">
+        <button class="toggle-btn active" data-unit="metric" id="metricBtn">Metric</button>
+        <button class="toggle-btn" data-unit="imperial" id="imperialBtn">Imperial</button>
+      </div>
+
+      <form id="bmiForm" autocomplete="off">
+        <div class="input-group" id="heightGroup">
+          <label for="height">Height</label>
+          <div class="input-row">
+            <div class="input-wrapper" id="heightMetricInput">
+              <input type="number" id="heightCm" placeholder="170" min="50" max="300" step="0.1" inputmode="decimal">
+              <span class="unit-label">cm</span>
+            </div>
+            <div class="input-wrapper imperial-inputs" id="heightImperialInput" style="display:none;">
+              <input type="number" id="heightFt" placeholder="5" min="1" max="9" step="1" inputmode="numeric">
+              <span class="unit-label">ft</span>
+              <input type="number" id="heightIn" placeholder="7" min="0" max="11" step="1" inputmode="numeric">
+              <span class="unit-label">in</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="weight">Weight</label>
+          <div class="input-row">
+            <div class="input-wrapper">
+              <input type="number" id="weight" placeholder="70" min="1" max="700" step="0.1" inputmode="decimal">
+              <span class="unit-label" id="weightUnit">kg</span>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="calc-btn" id="calcBtn">
+          Calculate BMI
+        </button>
+      </form>
+
+      <div class="result-section" id="resultSection" style="display:none;">
+        <div class="result-card" id="resultCard">
+          <div class="bmi-value" id="bmiValue">--</div>
+          <div class="bmi-label">Your BMI</div>
+          <div class="bmi-category" id="bmiCategory">--</div>
+          <div class="bmi-range" id="bmiRange"></div>
+        </div>
+
+        <div class="scale-bar">
+          <div class="scale-track">
+            <div class="scale-segment underweight"></div>
+            <div class="scale-segment normal"></div>
+            <div class="scale-segment overweight"></div>
+            <div class="scale-segment obese"></div>
+            <div class="scale-indicator" id="scaleIndicator"></div>
+          </div>
+          <div class="scale-labels">
+            <span>Underweight</span>
+            <span>Normal</span>
+            <span>Overweight</span>
+            <span>Obese</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      BMI is a screening tool, not a diagnostic measure.
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
